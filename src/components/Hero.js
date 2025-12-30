@@ -16,10 +16,10 @@ function Hero() {
         </span>
         
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-2xl">
-          IBVRD
+          Igreja Batista Vida no Reino de Deus
         </h1>
         <p className="text-xl md:text-2xl text-white/90 font-light max-w-3xl mx-auto mb-4">
-          Igreja Batista Vida no Reino de Deus
+          IBVRD
         </p>
         
         <div className="w-24 h-1 bg-gold mx-auto mb-10 shadow-[0_0_15px_rgba(212,175,55,0.8)] rounded-full"></div>

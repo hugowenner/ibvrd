@@ -40,12 +40,31 @@ function About() {
           </p>
         </div>
 
-        {/* Aniversário - Destaque Visual */}
+        {/* Aniversário - Destaque Visual (TAMANHO REDUZIDO) */}
         <div className="text-center mb-24">
-          <div className="inline-block bg-gradient-to-br from-dark to-dark-surface text-white p-10 rounded-2xl shadow-2xl border border-gold/20 transform hover:-translate-y-1 transition duration-300">
-            <span className="text-gold text-sm font-bold uppercase tracking-widest block mb-2">Comemorando</span>
-            <h3 className="text-5xl font-serif font-bold mb-3 text-white">18 Anos</h3>
-            <p className="text-gray-400 text-lg">Celebrando a fidelidade de Deus em nossa jornada</p>
+          <div className="relative inline-block bg-gradient-to-br from-dark to-[#111] p-6 md:p-8 rounded-2xl shadow-xl border border-gold/20 transform hover:scale-105 transition duration-300">
+            
+            {/* Brilho de fundo */}
+            <div className="absolute inset-0 bg-gold/5 rounded-2xl"></div>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gold/20 blur-2xl rounded-full -z-10"></div>
+
+            <span className="relative text-gold font-bold uppercase tracking-[0.2em] text-[10px] mb-2 block">Comemorando</span>
+            
+            {/* Reduzido de 7xl para 5xl */}
+            <h3 className="relative text-4xl md:text-5xl font-serif font-bold mb-2 text-white tracking-tight">
+              18 Anos
+            </h3>
+            
+            <div className="relative flex items-center justify-center gap-3 mb-2">
+              <div className="w-6 h-px bg-gold"></div>
+              <i className="fas fa-star text-gold text-[10px]"></i>
+              <div className="w-6 h-px bg-gold"></div>
+            </div>
+
+            {/* Texto limpo e elegante, tamanho reduzido */}
+            <p className="relative text-gray-200 text-sm font-light tracking-wide">
+              Celebrando a fidelidade de Deus em nossa jornada
+            </p>
           </div>
         </div>
 

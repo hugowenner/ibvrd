@@ -17,7 +17,7 @@ function Gallery() {
     <section id="galeria" className="py-24 bg-white relative">
       <div className="container mx-auto px-6">
         {/* Cabeçalho Padronizado */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-16">
           <span className="text-gold font-bold tracking-widest uppercase text-xs mb-2 block">Nossos Momentos</span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-6">
             Galeria de Fotos
@@ -28,12 +28,25 @@ function Gallery() {
           </p>
         </div>
 
-        {/* Grid da Galeria */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+        {/* Container de Rolagem Horizontal (Slider Moderno) */}
+        <div className="flex overflow-x-auto gap-6 pb-10 snap-x snap-mandatory px-2 md:px-0 scrollbar-hide">
+          {/* Estilo inline para esconder a barra de rolagem em navegadores Webkit e Firefox */}
+          <style>{`
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+          `}</style>
+
           {galleryImages.map((img) => (
             <div 
               key={img.id} 
-              className="group relative rounded-2xl overflow-hidden shadow-lg bg-gray-100 cursor-pointer aspect-[4/5] md:aspect-square"
+              className="group relative rounded-2xl overflow-hidden shadow-lg bg-gray-100 cursor-pointer shrink-0 
+                      w-[260px] h-[340px] md:w-[300px] md:h-[400px] lg:w-[320px] lg:h-[420px]
+                      snap-center border border-gray-100"
             >
               {/* Imagem */}
               <img 
@@ -53,10 +66,13 @@ function Gallery() {
               </div>
             </div>
           ))}
+          
+          {/* Espaço extra à direita para a rolagem não ficar colada na borda */}
+          <div className="w-4 shrink-0 hidden md:block"></div>
         </div>
 
         {/* Botão de Ação (Simulado para Redes Sociais) */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-8">
           <a 
             href="https://instagram.com" 
             target="_blank" 

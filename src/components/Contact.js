@@ -55,35 +55,42 @@ function Contact() {
                 </div>
               </div>
 
-              {/* Card de Horários (Dentro da Info Col) */}
-              <div className="mt-10 bg-dark text-white p-8 rounded-2xl border border-gold/20 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gold/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
+              {/* Card de Horários (ESTILO LIGHT/BRANCO CORRIGIDO) */}
+              <div className="mt-10 bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden">
+                {/* Decoração de fundo sutil */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gold/5 rounded-full blur-2xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
                 
-                <h4 className="text-xl font-serif font-bold text-white mb-6 flex items-center gap-3">
-                  <i className="fas fa-clock text-gold"></i> Horários de Culto
+                <h4 className="text-xl font-serif font-bold text-dark mb-6 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center text-sm">
+                    <i className="fas fa-clock"></i>
+                  </div>
+                  Horários de Culto
                 </h4>
                 
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center border-b border-gray-700 pb-3">
-                    <span className="text-gray-300">Domingo</span>
-                    <span className="text-gold font-bold text-lg">19:00</span>
+                  <div className="flex justify-between items-center border-b border-gray-100 pb-3 group">
+                    <span className="text-gray-600 font-medium group-hover:text-dark transition">Domingo</span>
+                    <span className="text-2xl font-serif font-bold text-dark tracking-tight">19:00</span>
                   </div>
-                  <div className="flex justify-between items-center border-b border-gray-700 pb-3">
-                    <span className="text-gray-300">Terça-feira</span>
-                    <span className="text-gold font-bold text-lg">20:00</span>
+                  <div className="flex justify-between items-center border-b border-gray-100 pb-3 group">
+                    <span className="text-gray-600 font-medium group-hover:text-dark transition">Terça-feira</span>
+                    <span className="text-2xl font-serif font-bold text-dark tracking-tight">20:00</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Quinta-feira</span>
-                    <span className="text-gold font-bold text-lg">20:00</span>
+                  <div className="flex justify-between items-center group">
+                    <span className="text-gray-600 font-medium group-hover:text-dark transition">Quinta-feira</span>
+                    <span className="text-2xl font-serif font-bold text-dark tracking-tight">20:00</span>
                   </div>
                 </div>
 
-                <div className="mt-6 bg-gold/10 p-3 rounded-lg text-center border border-gold/20">
-                  <p className="text-xs text-gold font-bold uppercase tracking-wide">
-                    <i className="fas fa-info-circle mr-1"></i> 1° e 2° domingo do mês: 10:00
+                {/* Destaque Especial sem fundo escuro */}
+                <div className="mt-6 bg-gold/5 p-4 rounded-xl border border-gold/10 flex items-center justify-center gap-2">
+                  <i className="fas fa-info-circle text-gold text-sm"></i>
+                  <p className="text-sm font-medium text-gray-700">
+                    1° e 2° domingo: <strong className="text-gold">10:00</strong>
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
 
