@@ -2,66 +2,137 @@ import React from 'react';
 
 function Contact() {
   return (
-    <section id="contato" className="py-20 md:py-32 bg-white">
+    <section id="contato" className="py-24 bg-bg-light relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-4 relative inline-block">
+        {/* Cabeçalho Padronizado */}
+        <div className="text-center mb-20">
+          <span className="text-gold font-bold tracking-widest uppercase text-xs mb-2 block">Fale Conosco</span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-6">
             Entre em Contato
-            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gold block mt-2"></span>
           </h2>
+          <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+            Estamos aqui para ouvir você. Venha nos fazer uma visita ou envie uma mensagem.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Info */}
-          <div className="bg-bg-light p-8 rounded">
-            <h3 className="text-2xl font-serif font-bold text-dark mb-8">Informações</h3>
-            
-            <div className="flex gap-4 mb-8 items-start">
-              <div className="w-12 h-12 bg-gold-light text-gold rounded-full flex items-center justify-center text-xl shrink-0"><i className="fas fa-map-marker-alt"></i></div>
-              <div>
-                <h4 className="font-bold text-dark">Endereço</h4>
-                <p className="text-gray-600">Avenida Campos Gerais 80- Xangrilá - Contagem - MG</p>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          
+          {/* Coluna Esquerda: Informações e Horários */}
+          <div className="flex flex-col gap-8">
+            {/* Card de Informações Gerais */}
+            <div className="bg-white p-10 rounded-2xl shadow-lg h-full">
+              <h3 className="text-2xl font-serif font-bold text-dark mb-8 border-b border-gray-100 pb-4">
+                Onde Estamos
+              </h3>
+              
+              <div className="space-y-8">
+                {/* Endereço */}
+                <div className="flex gap-5 items-start group">
+                  <div className="w-14 h-14 bg-gold/10 text-gold rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:bg-gold group-hover:text-white transition duration-300">
+                    <i className="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-dark text-lg mb-1">Endereço</h4>
+                    <p className="text-gray-600 leading-relaxed">
+                      Avenida Campos Gerais 80<br />
+                      Bairro Xangrilá - Contagem - MG
+                    </p>
+                  </div>
+                </div>
 
-            <div className="flex gap-4 mb-8 items-center">
-              <div className="w-12 h-12 bg-gold-light text-gold rounded-full flex items-center justify-center text-xl shrink-0"><i className="fas fa-phone"></i></div>
-              <div>
-                <h4 className="font-bold text-dark">Telefone</h4>
-                <p className="text-gray-600">31 99860-7491</p>
+                {/* Telefone */}
+                <div className="flex gap-5 items-center group">
+                  <div className="w-14 h-14 bg-gold/10 text-gold rounded-xl flex items-center justify-center text-2xl shrink-0 group-hover:bg-gold group-hover:text-white transition duration-300">
+                    <i className="fas fa-phone-alt"></i>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-dark text-lg mb-1">Telefone & WhatsApp</h4>
+                    <a href="tel:31998607491" className="text-gray-600 hover:text-gold transition font-medium">
+                      (31) 99860-7491
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div className="bg-dark text-white p-8 rounded mt-8">
-              <h4 className="text-xl font-serif font-bold text-white mb-4">Horários de Culto</h4>
-              <div className="space-y-2 border-b border-gray-700 pb-2 mb-2 flex justify-between"><span>Domingo</span><span className="text-gold font-bold">19:00</span></div>
-              <div className="space-y-2 border-b border-gray-700 pb-2 mb-2 flex justify-between"><span>Terça-feira</span><span className="text-gold font-bold">20:00</span></div>
-              <div className="space-y-2 flex justify-between"><span>Quinta-feira</span><span className="text-gold font-bold">20:00</span></div>
-              <p className="text-xs mt-4 opacity-70 text-center"><i className="fas fa-info-circle mr-1"></i> 1° e 2° domingo do mês: 10:00</p>
+              {/* Card de Horários (Dentro da Info Col) */}
+              <div className="mt-10 bg-dark text-white p-8 rounded-2xl border border-gold/20 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gold/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                
+                <h4 className="text-xl font-serif font-bold text-white mb-6 flex items-center gap-3">
+                  <i className="fas fa-clock text-gold"></i> Horários de Culto
+                </h4>
+                
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center border-b border-gray-700 pb-3">
+                    <span className="text-gray-300">Domingo</span>
+                    <span className="text-gold font-bold text-lg">19:00</span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-gray-700 pb-3">
+                    <span className="text-gray-300">Terça-feira</span>
+                    <span className="text-gold font-bold text-lg">20:00</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Quinta-feira</span>
+                    <span className="text-gold font-bold text-lg">20:00</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 bg-gold/10 p-3 rounded-lg text-center border border-gold/20">
+                  <p className="text-xs text-gold font-bold uppercase tracking-wide">
+                    <i className="fas fa-info-circle mr-1"></i> 1° e 2° domingo do mês: 10:00
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Form */}
-          <div className="bg-white border border-gray-200 p-8 rounded shadow-sm">
-            <h3 className="text-2xl font-serif font-bold text-dark mb-8">Envie sua mensagem</h3>
+          {/* Coluna Direita: Formulário */}
+          <div className="bg-white p-10 rounded-2xl shadow-lg border border-gray-100 h-fit">
+            <h3 className="text-2xl font-serif font-bold text-dark mb-8">
+              Envie sua mensagem
+            </h3>
             <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
               <div>
-                <label className="block font-bold text-dark mb-2">Nome</label>
-                <input type="text" className="w-full p-3 border border-gray-200 rounded focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition" placeholder="Digite seu nome completo" required />
+                <label className="block text-sm font-bold text-gray-700 mb-2">Nome Completo</label>
+                <input 
+                  type="text" 
+                  className="w-full p-4 bg-gray-50 border border-gray-200 text-dark rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition hover:bg-white" 
+                  placeholder="Digite seu nome" 
+                  required 
+                />
               </div>
+              
               <div>
-                <label className="block font-bold text-dark mb-2">E-mail</label>
-                <input type="email" className="w-full p-3 border border-gray-200 rounded focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition" placeholder="seu@email.com" required />
+                <label className="block text-sm font-bold text-gray-700 mb-2">E-mail</label>
+                <input 
+                  type="email" 
+                  className="w-full p-4 bg-gray-50 border border-gray-200 text-dark rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition hover:bg-white" 
+                  placeholder="seu@email.com" 
+                  required 
+                />
               </div>
+              
               <div>
-                <label className="block font-bold text-dark mb-2">Mensagem</label>
-                <textarea rows="5" className="w-full p-3 border border-gray-200 rounded focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition" placeholder="Como podemos ajudá-lo?" required></textarea>
+                <label className="block text-sm font-bold text-gray-700 mb-2">Mensagem</label>
+                <textarea 
+                  rows="5" 
+                  className="w-full p-4 bg-gray-50 border border-gray-200 text-dark rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition hover:bg-white resize-none" 
+                  placeholder="Como podemos ajudar você?" 
+                  required
+                ></textarea>
               </div>
-              <button className="w-full bg-gold text-white font-bold uppercase tracking-wider py-4 hover:bg-gold-dark transition shadow-md">
-                Enviar Mensagem
+              
+              <button 
+                type="submit" 
+                className="w-full bg-gold text-white font-bold uppercase tracking-widest py-4 rounded-lg hover:bg-gold-dark hover:shadow-gold/30 shadow-lg transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-2"
+              >
+                <span>Enviar Mensagem</span>
+                <i className="fas fa-paper-plane text-sm"></i>
               </button>
             </form>
           </div>
+
         </div>
       </div>
     </section>
