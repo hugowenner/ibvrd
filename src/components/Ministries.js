@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import SectionHeader from './SectionHeader';
 
 function Ministries() {
   const ministries = [
@@ -9,19 +10,12 @@ function Ministries() {
   ];
 
   return (
-    <section id="ministerios" className="py-24 bg-bg-light relative">
-      {/* Decoração de fundo */}
+    <section id="ministerios" className="py-24 relative">
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -z-10"></div>
 
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
-          <span className="text-gold font-bold tracking-widest uppercase text-xs mb-2 block">Onde servir</span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-dark mb-6">
-            Áreas de Ministério
-          </h2>
-          <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
-        </div>
-
+        <SectionHeader label="Onde servir" title="Áreas de Ministério" />
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {ministries.map((m, i) => (
             <Card 

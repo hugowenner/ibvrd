@@ -4,7 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Animações personalizadas */
+/* =========================
+   BACKGROUND GLOBAL DO SITE
+   ========================= */
+body {
+  background-image: url("./assets/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* =========================
+   Animações personalizadas
+   ========================= */
 @keyframes fade-in-up {
   0% {
     opacity: 0;
@@ -18,5 +31,24 @@
 
 .animate-fade-in {
   animation: fade-in-up 0.8s ease-out forwards;
-  opacity: 0; /* Inicia invisível */
+  opacity: 0;
+}
+
+/* =========================
+   Scrollbar limpa
+   ========================= */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =========================
+   Foco acessível global
+   ========================= */
+*:focus-visible {
+  @apply outline-none ring-2 ring-gold ring-offset-2;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,21 +8,35 @@ import Ministries from './components/Ministries';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import './index.css'; // Importa o Tailwind
+
+import fundo from './assets/fundo.jpg';
+import './index.css';
 
 function App() {
   return (
-    <div className="font-sans text-dark bg-bg-light antialiased">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Events />
-        <Ministries />
-        <Gallery />
-        <Contact />
-      </main>
-      <Footer />
+    <div
+      className="min-h-screen font-sans text-dark antialiased"
+      style={{
+        backgroundImage: `url(${fundo})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      {/* Overlay para leitura */}
+      <div className="min-h-screen bg-white/85">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Events />
+          <Ministries />
+          <Gallery />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
