@@ -11,11 +11,11 @@ const Card = ({ icon, title, description, image, isImageCard = false }) => {
             alt={title} 
             className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         </div>
         <div className="p-8 relative flex-1 flex flex-col justify-center">
           <h3 className="text-2xl font-serif font-bold text-dark mb-3">{title}</h3>
-          <p className="text-gray-600 leading-relaxed mb-6">{description}</p>
+          <p className="text-gray-600 font-sans leading-relaxed mb-6">{description}</p>
           <a href="#contato" className="inline-flex items-center text-gold font-bold uppercase text-sm tracking-widest hover:text-gold-dark transition mt-auto">
             Saiba Mais <i className="fas fa-arrow-right ml-2 text-xs"></i>
           </a>
@@ -26,7 +26,7 @@ const Card = ({ icon, title, description, image, isImageCard = false }) => {
 
   // Estilo para Cards de Ícone (Valores)
   return (
-    <div className="bg-white p-10 rounded-2xl shadow-gold-glow hover:shadow-card-hover hover:-translate-y-2 transition duration-300 border border-gray-50 text-center relative overflow-hidden group">
+    <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition duration-300 border border-gray-50 text-center relative overflow-hidden group">
       {/* Efeito de linha superior animada */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent transform scale-x-0 group-hover:scale-x-100 transition duration-500"></div>
       
@@ -35,7 +35,7 @@ const Card = ({ icon, title, description, image, isImageCard = false }) => {
       </div>
       
       <h4 className="text-xl font-serif font-bold mb-4 text-dark">{title}</h4>
-      <p className="text-gray-600 font-light leading-relaxed">{description}</p>
+      <p className="text-gray-600 font-sans font-light leading-relaxed">{description}</p>
     </div>
   );
 };
