@@ -4,14 +4,14 @@ import SectionHeader from './SectionHeader';
 
 function About() {
   return (
-    <section id="sobre" className="py-24 bg-white relative overflow-hidden">
+    <section id="sobre" className="py-24 relative overflow-hidden">
       {/* Elemento decorativo */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -z-10 transform -translate-x-1/2 -translate-y-1/2"></div>
 
       <div className="container mx-auto px-6">
         <SectionHeader label="Quem Somos" title="Nossa História" />
 
-        {/* Bloco de História */}
+        {/* Bloco de História - Mantém fundo próprio para legibilidade */}
         <div className="bg-bg-light p-10 md:p-16 border-l-4 border-gold relative mb-24 max-w-5xl mx-auto rounded-r-2xl shadow-sm">
           <div className="absolute top-8 left-6 text-8xl text-gold font-serif opacity-10 leading-none font-bold">"</div>
           <p className="text-gray-700 italic text-lg md:text-xl leading-loose relative z-10 whitespace-pre-line font-sans text-left">

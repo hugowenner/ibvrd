@@ -23,7 +23,7 @@ function Events() {
   }, []);
 
   return (
-    <section id="programacao" className="py-24 bg-bg-light relative">
+    <section id="programacao" className="py-24 relative">
       {/* Decoração de fundo */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -z-10 transform translate-x-1/2 -translate-y-1/2"></div>
 

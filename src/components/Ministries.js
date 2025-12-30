@@ -10,7 +10,7 @@ function Ministries() {
   ];
 
   return (
-    <section id="ministerios" className="py-24 bg-bg-light relative">
+    <section id="ministerios" className="py-24 relative">
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -z-10"></div>
 
       <div className="container mx-auto px-6">

@@ -14,7 +14,7 @@ function Gallery() {
   ];
 
   return (
-    <section id="galeria" className="py-24 bg-white relative">
+    <section id="galeria" className="py-24 relative">
       <div className="container mx-auto px-6">
         <SectionHeader 
           label="Nossos Momentos" 

@@ -4,7 +4,7 @@ import Button from './Button';
 
 function Contact() {
   return (
-    <section id="contato" className="py-24 bg-bg-light relative">
+    <section id="contato" className="py-24 relative">
       <div className="container mx-auto px-6">
         <SectionHeader 
           label="Fale Conosco" 
