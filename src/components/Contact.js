@@ -83,7 +83,7 @@ function Contact() {
 
           </div>
 
-          {/* Coluna Direita: Formulário e Botões de Ação */}
+          {/* Coluna Direita: Formulário */}
           <div className="bg-white p-10 rounded-2xl shadow-lg border border-gray-100 h-fit">
             <h3 className="text-2xl font-serif font-bold text-dark mb-8">Envie sua mensagem</h3>
 
@@ -102,32 +102,6 @@ function Contact() {
               </div>
               <Button type="submit" icon="fa-paper-plane" className="w-full justify-center">Enviar Mensagem</Button>
             </form>
-
-            {/* Botões de Ação: Instagram e WhatsApp */}
-            <div className="mt-10 pt-8 border-t border-gray-100 text-center">
-              <p className="text-gray-500 text-sm mb-4 font-medium">Entre em contato direto:</p>
-              <div className="flex flex-col gap-3 justify-center">
-                <a 
-                  href="https://www.instagram.com/ibvrd_oficial/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center justify-center gap-3 border-2 border-dark text-dark px-8 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-dark hover:text-gold transition duration-300"
-                >
-                  <i className="fab fa-instagram"></i>
-                  Siga-nos no Instagram
-                </a>
-                
-                <a 
-                  href="https://wa.me/5531998607491?text=Oi%2C%20eu%20queria%20mais%20informa%C3%A7%C3%B5es" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 border-2 border-dark text-dark px-8 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-dark hover:text-gold transition duration-300"
-                >
-                  <i className="fab fa-whatsapp"></i>
-                  Fale no WhatsApp
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>

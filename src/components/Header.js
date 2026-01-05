@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// Importe a imagem. Ajuste o caminho ('../assets/...') dependendo de onde este arquivo Header.js está salvo.
+import logoImage from '../assets/logo.png';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,12 +45,15 @@ function Header() {
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#" className={`flex items-center gap-3 text-2xl font-bold font-serif transition-colors ${scrolled ? 'text-gold' : 'text-white'}`}>
-          <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${scrolled ? 'bg-gold text-white' : 'bg-white text-gold'}`}>
-            <i className="fas fa-church"></i>
-          </div>
-          <span>IBVRD</span>
+        
+        {/* Logo com Imagem */}
+        <a href="#" className="flex items-center gap-2 transition-transform hover:scale-105 duration-300">
+          <img
+            src={logoImage}
+            alt="Logo IBVRD"
+            // h-12 define a altura (48px), w-auto mantém a proporção
+            className="h-20 w-auto object-contain"
+          />
         </a>
 
         {/* Desktop Menu */}

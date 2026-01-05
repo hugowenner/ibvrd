@@ -25,7 +25,7 @@ function App() {
       }}
     >
       {/* Overlay para leitura */}
-      <div className="min-h-screen bg-white/85">
+      <div className="min-h-screen bg-white/70">
         <Header />
         <main>
           <Hero />
