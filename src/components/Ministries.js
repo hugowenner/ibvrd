@@ -3,11 +3,12 @@ import Card from './Card';
 import SectionHeader from './SectionHeader';
 // Importação da imagem local
 import louvorImage from '../assets/louvor.jpeg';
+import criancasImage from '../assets/criancas.jpeg';
 
 function Ministries() {
   const ministries = [
     { name: "Louvor", desc: "Levando a igreja aos pés do Pai através da adoração genuína.", img: louvorImage },
-    { name: "Jovens", desc: "Gerando uma nova geração de discípulos de Cristo firmados na Palavra.", img: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1000&auto=format&fit=crop" },
+    { name: "Jovens", desc: "Gerando uma nova geração de discípulos de Cristo firmados na Palavra.", img: criancasImage },
     { name: "Mulheres", desc: "Mulheres fortes na fé, cuidando umes das outras em amor.", img: "https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1000&auto=format&fit=crop" },
     { name: "Homens", desc: "Homens firmados na fé, construindo laços de amizade e crescendo juntos na palavra de Deus.", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop" },
     { name: "Dança", desc: "Expressando a arte e a devoção através do movimento.", img: "https://images.unsplash.com/photo-1518834107812-67b0b7c58434?q=80&w=1000&auto=format&fit=crop" },

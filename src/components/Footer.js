@@ -1,4 +1,5 @@
 import React from 'react';
+import pastorImage from '../assets/pastor.png';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -92,8 +93,12 @@ function Footer() {
               </h3>
               
               <div className="bg-bg-light rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
-                <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-gold text-3xl">
-                  <i className="fas fa-user-tie"></i>
+                <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-2 border-gold/30 shadow-sm">
+                  <img
+                    src={pastorImage}
+                    alt="Pastor Presidente Robert Lula Ramos"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <p className="text-sm text-gold font-bold uppercase tracking-widest mb-1">Pastor Presidente</p>
                 <h4 className="text-2xl font-serif font-bold text-dark mb-4">Robert Lula Ramos</h4>
