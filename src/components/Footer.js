@@ -3,13 +3,33 @@ import React from 'react';
 function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // Função auxiliar para remover acentos e gerar IDs de links limpos
+  const normalizeId = (text) => {
+    return text
+      .toLowerCase()
+      .normalize("NFD") // Decompõe caracteres acentuados
+      .replace(/[\u0300-\u036f]/g, "") // Remove os diacríticos (acentos)
+      .replace(/ç/g, "c") // Garante a troca de cedilha
+      .replace(/\s+/g, "-") // Substitui espaços por hífens (caso existam)
+      .replace("nós", "nos"); // Correção específica para "Sobre Nós"
+  };
+
+  const menuItems = [
+    { label: 'Início' },
+    { label: 'Sobre Nós' },
+    { label: 'Programação' },
+    { label: 'Ministérios' },
+    { label: 'Galeria' },
+    { label: 'Contato' }
+  ];
+
   return (
     <footer className="pt-20 pb-8">
       <div className="container mx-auto px-6">
         <div className="bg-white rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] pt-16 pb-12 px-6 md:px-12 border-t border-gray-100">
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
-            {/* Coluna 1 */}
+            {/* Coluna 1: Identidade e Ações Rápidas */}
             <div>
               <div className="mb-6">
                 <h3 className="text-3xl font-serif font-bold text-dark mb-2 tracking-wide">IBVRD</h3>
@@ -18,36 +38,41 @@ function Footer() {
               <p className="mb-8 leading-relaxed text-gray-500 font-sans">
                 Igreja Batista Vida no Reino de Deus. Uma igreja em movimento, firmada no ensino da palavra e direcionada pelo Espírito Santo.
               </p>
-              <div className="flex gap-4">
-                <a href="#" aria-label="Facebook" className="w-12 h-12 rounded-full bg-gray-100 text-dark border border-gray-200 flex items-center justify-center hover:bg-gold hover:text-white hover:border-gold hover:-translate-y-1 transition duration-300 shadow-sm">
-                  <i className="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" aria-label="Instagram" className="w-12 h-12 rounded-full bg-gray-100 text-dark border border-gray-200 flex items-center justify-center hover:bg-gold hover:text-white hover:border-gold hover:-translate-y-1 transition duration-300 shadow-sm">
+              
+              {/* Botões de Ação (Instagram e WhatsApp) */}
+              <div className="flex flex-col gap-2 w-full">
+                <a 
+                  href="https://www.instagram.com/ibvrd_oficial/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 border-2 border-dark text-dark px-6 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-dark hover:text-gold transition duration-300"
+                >
                   <i className="fab fa-instagram"></i>
+                  Siga-nos no Instagram
                 </a>
-                <a href="#" aria-label="YouTube" className="w-12 h-12 rounded-full bg-gray-100 text-dark border border-gray-200 flex items-center justify-center hover:bg-gold hover:text-white hover:border-gold hover:-translate-y-1 transition duration-300 shadow-sm">
-                  <i className="fab fa-youtube"></i>
+                
+                <a 
+                  href="https://wa.me/5531998607491?text=Oi%2C%20eu%20queria%20mais%20informa%C3%A7%C3%B5es" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 border-2 border-dark text-dark px-6 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-dark hover:text-gold transition duration-300"
+                >
+                  <i className="fab fa-whatsapp"></i>
+                  Fale no WhatsApp
                 </a>
               </div>
             </div>
 
-            {/* Coluna 2 */}
+            {/* Coluna 2: Navegação */}
             <div>
               <h3 className="text-lg font-serif font-bold text-dark mb-8 uppercase tracking-wider text-sm border-b border-gray-100 pb-4">
                 Navegação
               </h3>
               <ul className="space-y-4">
-                {[
-                  { label: 'Início', href: '#inicio' },
-                  { label: 'Sobre Nós', href: '#sobre' },
-                  { label: 'Programação', href: '#programacao' },
-                  { label: 'Ministérios', href: '#ministerios' },
-                  { label: 'Galeria', href: '#galeria' },
-                  { label: 'Contato', href: '#contato' }
-                ].map((item, idx) => (
+                {menuItems.map((item, idx) => (
                   <li key={idx}>
                     <a 
-                      href={item.href} 
+                      href={`#${normalizeId(item.label)}`} 
                       className="group flex items-center text-gray-500 hover:text-gold transition-all duration-300 transform hover:translate-x-2"
                     >
                       <span className="w-0 group-hover:w-4 transition-all duration-300 text-gold opacity-0 group-hover:opacity-100">
@@ -60,22 +85,27 @@ function Footer() {
               </ul>
             </div>
 
-            {/* Coluna 3 */}
+            {/* Coluna 3: Liderança (Destacado) */}
             <div>
               <h3 className="text-lg font-serif font-bold text-dark mb-8 uppercase tracking-wider text-sm border-b border-gray-100 pb-4">
                 Liderança
               </h3>
-              <div className="mb-8">
-                <p className="mb-1 text-dark font-medium">Pastor Presidente</p>
-                <p className="text-gold italic text-lg">Robert Lula Ramos</p>
-              </div>
-              <div className="relative bg-bg-light p-6 rounded-xl border-l-4 border-gold shadow-inner">
-                <i className="fas fa-quote-left text-gold/10 text-4xl absolute top-4 left-4"></i>
-                <p className="text-gray-600 italic font-serif relative z-10 text-sm leading-relaxed">
-                  "E perseveravam na doutrina dos apóstolos, e na comunhão, e no partir do pão, e nas orações."
-                </p>
-                <div className="mt-4 text-right">
-                  <span className="text-gold font-bold text-xs uppercase tracking-widest">Atos 2:42</span>
+              
+              <div className="bg-bg-light rounded-2xl p-6 border border-gray-100 text-center shadow-sm">
+                <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-gold text-3xl">
+                  <i className="fas fa-user-tie"></i>
+                </div>
+                <p className="text-sm text-gold font-bold uppercase tracking-widest mb-1">Pastor Presidente</p>
+                <h4 className="text-2xl font-serif font-bold text-dark mb-4">Robert Lula Ramos</h4>
+                
+                <div className="relative bg-white p-4 rounded-xl shadow-inner border border-gold/10">
+                  <i className="fas fa-quote-left text-gold/10 text-2xl absolute top-2 left-2"></i>
+                  <p className="text-gray-600 italic font-serif text-sm leading-relaxed relative z-10">
+                    "E perseveravam na doutrina dos apóstolos, e na comunhão, e no partir do pão, e nas orações."
+                  </p>
+                  <div className="mt-3 text-right border-t border-gray-100 pt-2">
+                    <span className="text-gold font-bold text-xs uppercase tracking-widest">Atos 2:42</span>
+                  </div>
                 </div>
               </div>
             </div>

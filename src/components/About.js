@@ -5,72 +5,74 @@ import SectionHeader from './SectionHeader';
 function About() {
   return (
     <section id="sobre" className="py-24 relative overflow-hidden">
-      {/* Elemento decorativo */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -z-10 transform -translate-x-1/2 -translate-y-1/2"></div>
 
       <div className="container mx-auto px-6">
         <SectionHeader label="Quem Somos" title="Nossa História" />
 
-        {/* Bloco de História - Mantém fundo próprio para legibilidade */}
-        <div className="bg-bg-light p-10 md:p-16 border-l-4 border-gold relative mb-24 max-w-5xl mx-auto rounded-r-2xl shadow-sm">
-          <div className="absolute top-8 left-6 text-8xl text-gold font-serif opacity-10 leading-none font-bold">"</div>
-          <p className="text-gray-700 italic text-lg md:text-xl leading-loose relative z-10 whitespace-pre-line font-sans text-left">
-            Uma igreja que nasceu dentro de casa, através de uma visão física mas espiritual.
-            Acatada de prontidão por mim e por minha esposa.
-            Largamos nossas profissões pela obra de Deus.
-            Nasceu então a IBVRD.
-            PEQUENA, dentro de casa....
-            Passamos e começamos em um grupo pequeno de estudos aos sábados, até crescermos e escutarmos a voz de Deus para saírmos de casa!
-            Abrimos um ministério.
-            Vimos transformações, restaurações, curas e provisões.
-            Sofremos pelo evangelho, fomos julgados por todos os lados relacionaveis.
-            Não tínhamos cadeiras suficientes, não tínhamos pessoas para trabalhar, não tínhamos dinheiro para começar, somente a fé em Cristo que nos sustentava.
-            Suportamos a dor das perdas e estamos de Pé.
-            Contribuindo com o avanço do Reino !
-            Hoje temos 18 anos de idade.
-            Ainda não temos toda estrutura, mas continuamos a ter Cristo, o autor e consumador da nossa fé.
-            A IBVRD é: Uma igreja em movimento,
-            Firmada no ensino da palavra e direcionada pelo Espírito Santo.
-            Tendo como base Atos 2:42..... Sendo alimentada e alimentando os santos de Jesus.
-          </p>
+        <div className="max-w-5xl mx-auto space-y-12">
+          
+          {/* BLOCO 1: A ORIGEM */}
+          <div className="bg-bg-light p-8 md:p-12 rounded-2xl border border-gray-100 shadow-sm relative">
+            <div className="absolute -top-4 left-8 bg-gold text-dark px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+              A Origem
+            </div>
+            <p className="text-gray-700 text-lg leading-relaxed pt-4">
+              A <strong>IBVRD</strong> nasceu dentro de casa, fruto de uma visão física, mas profundamente espiritual. Acatada de prontidão por mim e por minha esposa, largamos nossas profissões para dedicarmos à obra de Deus. O que começou pequeno, em um grupo de estudos aos sábados, logo se transformou em um ministério em movimento.
+            </p>
+          </div>
+
+          {/* BLOCO 2: O CRESCIMENTO E DESAFIOS */}
+          <div className="bg-bg-light p-8 md:p-12 rounded-2xl border border-gray-100 shadow-sm relative">
+            <div className="absolute -top-4 left-8 bg-gold text-dark px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+              Crescimento & Fé
+            </div>
+            <p className="text-gray-700 text-lg leading-relaxed pt-4">
+              Ao ouvirmos a voz de Deus para sairmos de casa, abrimos as portas do ministério. Vimos transformações, restaurações, curas e provisões. A jornada não foi fácil: sofremos pelo evangelho e fomos julgados. Não tínhamos cadeiras suficientes, nem pessoas para trabalhar, e o dinheiro era escasso. Mas tínhamos algo inabalável: <em>a fé em Cristo que nos sustentava</em>.
+            </p>
+          </div>
+
+          {/* BLOCO 3: PROPÓSITO ATUAL */}
+          <div className="bg-bg-light p-8 md:p-12 rounded-2xl border border-gray-100 shadow-sm relative">
+            <div className="absolute -top-4 left-8 bg-gold text-dark px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+              Hoje
+            </div>
+            <p className="text-gray-700 text-lg leading-relaxed pt-4">
+              Hoje comemoramos <strong>18 anos</strong> de fundação. Ainda não temos toda a estrutura física, mas continuamos a ter Cristo, o autor e consumador da nossa fé. A IBVRD é uma igreja firmada no ensino da Palavra e direcionada pelo Espírito Santo, tendo como base <strong>Atos 2:42</strong>, sendo alimentada e alimentando os santos de Jesus.
+            </p>
+          </div>
+
         </div>
 
-        {/* Aniversário */}
-        <div className="text-center mb-24">
-          <div className="relative inline-block bg-gradient-to-br from-dark to-dark-soft p-6 md:p-8 rounded-2xl shadow-xl border border-gold/20 transform hover:scale-105 transition duration-300">
-            <div className="absolute inset-0 bg-gold/5 rounded-2xl"></div>
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gold/20 blur-2xl rounded-full -z-10"></div>
-
-            <span className="relative text-gold font-bold uppercase tracking-[0.2em] text-[10px] mb-2 block">Comemorando</span>
-            <h3 className="relative text-4xl md:text-5xl font-serif font-bold mb-2 text-white tracking-tight">18 Anos</h3>
-            
-            <div className="relative flex items-center justify-center gap-3 mb-2">
-              <div className="w-6 h-px bg-gold"></div>
-              <i className="fas fa-star text-gold text-[10px]"></i>
-              <div className="w-6 h-px bg-gold"></div>
-            </div>
-
-            <p className="relative text-gray-200 text-sm font-light tracking-wide">
-              Celebrando a fidelidade de Deus em nossa jornada
+        {/* MISSÃO (Caixa Informativa) */}
+        <div className="mt-20 max-w-4xl mx-auto">
+          <div className="bg-dark rounded-2xl p-8 md:p-12 text-center shadow-xl relative overflow-hidden">
+            <div className="absolute inset-0 bg-gold/5 opacity-20 pattern-dots"></div>
+            <h3 className="text-2xl font-serif font-bold text-white mb-6 relative z-10">Nossa Missão</h3>
+            <p className="text-gray-300 text-lg leading-relaxed relative z-10">
+              Anunciar o Reino de Deus até que Ele venha, através da Bíblia, na qual cremos indiscutivelmente ser a voz de Deus materializada por homens cheios do seu Santo Espírito.
             </p>
           </div>
         </div>
 
         {/* Valores */}
-        <SectionHeader label="Nossos Valores" title="Pilares da Fé" description="Os fundamentos que sustentam nossa caminhada." />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            { icon: 'fa-heart', title: 'Amor a Deus', desc: 'Amar a Deus acima de todas as coisas.' },
-            { icon: 'fa-bible', title: 'Fidelidade', desc: 'Buscar a verdade na Palavra de Deus.' },
-            { icon: 'fa-users', title: 'Comunhão', desc: 'Cultivar relacionamentos genuínos.' },
-            { icon: 'fa-globe-americas', title: 'Evangelismo', desc: 'Compartilhar o evangelho com todos.' },
-            { icon: 'fa-praying-hands', title: 'Adoração', desc: 'Expressar nosso amor e gratidão a Deus.' },
-            { icon: 'fa-hands-helping', title: 'Serviço', desc: 'Servir aos outros com humildade.' }
-          ].map((item, index) => (
-            <Card key={index} icon={item.icon} title={item.title} description={item.desc} />
-          ))}
+        <div className="mt-24">
+          <SectionHeader label="Nossos Valores" title="Pilares da Fé" description="Os fundamentos que sustentam nossa caminhada cristã." />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { icon: 'fa-heart', title: 'Amor a Deus', desc: 'Amar a Deus acima de todas as coisas.' },
+              { icon: 'fa-bible', title: 'Fidelidade às Escrituras', desc: 'Buscar a verdade na Palavra de Deus.' },
+              { icon: 'fa-users', title: 'Comunhão', desc: 'Cultivar relacionamentos genuínos.' },
+              { icon: 'fa-globe-americas', title: 'Evangelismo', desc: 'Compartilhar o evangelho com todos.' },
+              { icon: 'fa-praying-hands', title: 'Adoração', desc: 'Expressar nosso amor e gratidão a Deus.' },
+              { icon: 'fa-hands-helping', title: 'Serviço ao Próximo', desc: 'Servir aos outros com humildade.' }
+            ].map((item, index) => (
+              <Card key={index} icon={item.icon} title={item.title} description={item.desc} />
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   );

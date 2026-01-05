@@ -5,7 +5,6 @@ function Hero() {
     <section id="inicio" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
       {/* Fundo com Overlay Gradiente Escuro */}
       <div className="absolute inset-0 z-0">
-        {/* Nota: Certifique-se de ter a classe bg-hero-pattern configurada ou use uma imagem inline */}
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2074&auto=format&fit=crop')] bg-cover bg-center"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/70 to-dark/90"></div>
       </div>
@@ -15,21 +14,32 @@ function Hero() {
           Bem-vindo ao Lar Espiritual
         </span>
         
+        {/* Título Principal */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-2xl">
           Igreja Batista Vida no Reino de Deus
         </h1>
-        <p className="text-xl md:text-2xl text-white/90 font-light max-w-3xl mx-auto mb-4">
-          IBVRD
+
+        {/* Subtítulo Institucional Curto */}
+        <p className="text-xl md:text-2xl text-gold font-medium max-w-3xl mx-auto mb-8 tracking-wide">
+          Uma igreja em movimento, firmada na Palavra.
         </p>
         
-        <div className="w-24 h-1 bg-gold mx-auto mb-10 shadow-[0_0_15px_rgba(212,175,55,0.8)] rounded-full"></div>
+        <div className="w-24 h-1 bg-gold mx-auto mb-12 shadow-[0_0_15px_rgba(212,175,55,0.8)] rounded-full"></div>
         
-        <p className="text-lg md:text-xl text-gray-300 italic mb-12 max-w-2xl mx-auto font-serif">
-          "E perseveravam na doutrina dos apóstolos, e na comunhão, e no partir do pão, e nas orações." 
-          <span className="block text-gold font-bold not-italic mt-2 text-sm tracking-widest uppercase">Atos 2:42</span>
-        </p>
+        {/* Destaque Central: Atos 2:42 */}
+        <div className="relative max-w-3xl mx-auto">
+          <div className="absolute -top-6 -left-6 text-6xl text-gold opacity-20 font-serif leading-none">"</div>
+          <p className="text-2xl md:text-3xl text-white font-serif italic mb-4 leading-relaxed px-8">
+            E perseveravam na doutrina dos apóstolos, e na comunhão, e no partir do pão, e nas orações.
+          </p>
+          <div className="absolute -bottom-6 -right-6 text-6xl text-gold opacity-20 font-serif leading-none transform rotate-180">"</div>
+        </div>
         
-        <div className="flex flex-col md:flex-row gap-6 justify-center">
+        <span className="block text-gold font-bold not-italic mt-10 text-sm tracking-[0.3em] uppercase drop-shadow-lg">
+          Atos 2:42
+        </span>
+
+        <div className="flex flex-col md:flex-row gap-6 justify-center mt-16">
           <a href="#programacao" className="bg-gold text-dark px-10 py-4 font-bold uppercase tracking-widest rounded hover:bg-white hover:scale-105 transition shadow-lg shadow-gold/30 duration-300">
             Nossa Programação
           </a>

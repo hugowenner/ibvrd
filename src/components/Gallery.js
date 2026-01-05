@@ -3,14 +3,14 @@ import SectionHeader from './SectionHeader';
 
 function Gallery() {
   const galleryImages = [
-    { id: 1, seed: 'worship' },
-    { id: 2, seed: 'church' },
-    { id: 3, seed: 'bible' },
-    { id: 4, seed: 'community' },
-    { id: 5, seed: 'prayer' },
-    { id: 6, seed: 'music' },
-    { id: 7, seed: 'family' },
-    { id: 8, seed: 'preach' },
+    { id: 1, seed: 'worship', category: 'Cultos' },
+    { id: 2, seed: 'baptism', category: 'Batismos' },
+    { id: 3, seed: 'event', category: 'Eventos' },
+    { id: 4, seed: 'charity', category: 'Ação Social' },
+    { id: 5, seed: 'prayer', category: 'Oração' },
+    { id: 6, seed: 'music', category: 'Louvor' },
+    { id: 7, seed: 'family', category: 'Comunhão' },
+    { id: 8, seed: 'preach', category: 'Ensino' },
   ];
 
   return (
@@ -22,7 +22,7 @@ function Gallery() {
           description="Confira um pouco da nossa caminhada, celebrações e comunhão."
         />
 
-        {/* Slider - Sem estilo inline, usando classe do index.css */}
+        {/* Slider Horizontal */}
         <div className="flex overflow-x-auto gap-6 pb-10 snap-x snap-mandatory px-2 md:px-0 scrollbar-hide">
           {galleryImages.map((img) => (
             <div 
@@ -33,7 +33,7 @@ function Gallery() {
             >
               <img 
                 src={`https://picsum.photos/seed/${img.seed}/600/800`} 
-                alt="Foto da galeria IBVRD" 
+                alt={`Foto da galeria IBVRD - ${img.category}`} 
                 className="w-full h-full object-cover transform transition duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center text-white">
@@ -41,7 +41,7 @@ function Gallery() {
                   <i className="fas fa-plus"></i>
                 </div>
                 <span className="mt-3 font-medium uppercase text-xs tracking-widest transform translate-y-4 group-hover:translate-y-0 transition duration-300 delay-75">
-                  Ver Mais
+                  {img.category}
                 </span>
               </div>
             </div>
@@ -51,7 +51,7 @@ function Gallery() {
 
         <div className="text-center mt-8">
           <a 
-            href="https://instagram.com" 
+            href="https://www.instagram.com/ibvrd_oficial/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="inline-flex items-center gap-3 border-2 border-dark text-dark px-8 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-dark hover:text-gold transition duration-300"
