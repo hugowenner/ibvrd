@@ -19,11 +19,7 @@ function Hero() {
           Igreja Batista Vida no Reino de Deus
         </h1>
 
-        {/* Subtítulo Institucional Curto */}
-        <p className="text-xl md:text-2xl text-gold font-medium max-w-3xl mx-auto mb-8 tracking-wide">
-          Uma igreja em movimento, firmada na Palavra.
-        </p>
-        
+        {/* Subtítulo Institucional Curto */}        
         <div className="w-24 h-1 bg-gold mx-auto mb-12 shadow-[0_0_15px_rgba(212,175,55,0.8)] rounded-full"></div>
         
         {/* Destaque Central: Atos 2:42 */}

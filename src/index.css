@@ -5,6 +5,14 @@
 @tailwind utilities;
 
 /* =========================
+   CORREÇÃO DA BARRA LATERAL (HORIZONTAL SCROLL)
+   ========================= */
+html, body {
+  overflow-x: hidden; /* Impede qualquer rolagem horizontal na página inteira */
+  max-width: 100%;    /* Garante que o corpo não ultrapasse a largura da tela */
+}
+
+/* =========================
    BACKGROUND GLOBAL DO SITE
    ========================= */
 body {
