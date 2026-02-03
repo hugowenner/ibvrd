@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// Importe a imagem. Ajuste o caminho ('../assets/...') dependendo de onde este arquivo Header.js está salvo.
 import logoImage from '../assets/logo.png';
 
 function Header() {
@@ -14,12 +13,11 @@ function Header() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Função para rolagem suave ajustada à altura do menu fixo
   const scrollToSection = (e, id) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const headerOffset = 100; // Altura aproximada do header + margem de segurança
+      const headerOffset = 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -28,11 +26,9 @@ function Header() {
         behavior: "smooth"
       });
     }
-    // Fecha o menu mobile se estiver aberto
     if (isOpen) setIsOpen(false);
   };
 
-  // Lista explícita de IDs para garantir que correspondam às seções
   const menuItems = [
     { label: 'Início', id: 'inicio' },
     { label: 'Sobre', id: 'sobre' },
@@ -46,13 +42,13 @@ function Header() {
     <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         
-        {/* Logo com Imagem */}
+        {/* Logo com Imagem e Sombra Adicionada */}
         <a href="#" className="flex items-center gap-2 transition-transform hover:scale-105 duration-300">
           <img
             src={logoImage}
             alt="Logo IBVRD"
-            // h-12 define a altura (48px), w-auto mantém a proporção
-            className="h-20 w-auto object-contain"
+            // Adicionei "drop-shadow-lg" aqui para dar contraste no fundo branco
+            className="h-20 w-auto object-contain drop-shadow-lg"
           />
         </a>
 

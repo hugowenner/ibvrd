@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+Documento de Projeto: Landing Page IBVRD
+1. Visão Geral da Landing Page
+Uma página institucional moderna e acolhedora para a Igreja Batista Vida no Reino de Deus, focada em apresentar a identidade da igreja, sua história, e facilitar o engajamento da comunidade local através de informações claras de programação e contato.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2. Objetivo Principal
+Apresentar a IBVRD como um "Lar Espiritual", divulgando os cultos, a história da fundação e os ministérios, além de fornecer um canal direto para comunicação e acolhimento de novos membros.
 
-## Available Scripts
+3. Resultado Esperado
+Aumentar a presença de visitantes presenciais nos cultos.
+Facilitar o contato através do formulário e WhatsApp.
+Engajar o público nas redes sociais (Instagram).
+Informar claramente sobre os dias e horários das atividades.
+4. Estrutura da Página (Seções)
+A. Hero Section (Cabeçalho Principal)
+Conteúdo: Imagem de fundo inspiradora com sobreposição escura para leitura.
+Elementos:
+Título: "Igreja Batista Vida no Reino de Deus".
+Subtítulo/Citação: Versículo base de Atos 2:42.
+CTAs (Call to Action): "Nossa Programação" (link para seção de agenda) e "Fale Conosco".
+B. Navegação (Menu)
+Menu fixo no topo que muda de transparente para branco ao rolar a página.
+Links para: Início, Sobre, Programação, Ministérios, Galeria, Contato.
+C. Sobre Nós (Proposta de Valor)
+Conteúdo Narrativo: Blocos de texto contando a origem (nasceu em casa), os desafios (falta de cadeiras/recursos) e a chegada aos 18 anos.
+Destaque: Caixa escura com a Missão da igreja.
+Valores: Cards em grid destacando os pilares (Amor, Bíblia, Comunhão, Evangelismo, Adoração, Serviço).
+D. Nossa Programação (Prova Social / Informação)
+Agenda: Cards dinâmicos mostrando os próximos cultos (Domingo, Terça, Quinta).
+Aviso Especial: Box destacado informando o horário especial dos 1º e 2º domingos (10:00 da manhã).
+E. Ministérios (Benefícios/Serviços)
+Grid de cards com imagem, título e descrição curta.
+Áreas: Louvor, Jovens, Mulheres, Homens, Dança, Evangelismo, Tecnologia.
+F. Galeria de Fotos e Vídeos
+Funcionalidade: Carrossel horizontal com scroll suave.
+Interatividade: Ao clicar, a mídia deve expandir em um modal (lightbox), permitindo navegar para o lado (próximo/anterior) sem sair da página.
+CTA: Link para o Instagram oficial.
+G. Contato (Chamada para ação final)
+Coluna Esquerda (Info): Endereço (Av. Campos Gerais, 80), Telefone/WhatsApp, E-mail, Mapa do Google embutido e Resumo dos horários.
+Coluna Direita (Form): Formulário simples (Nome, E-mail, Mensagem) para captação de dúvidas ou pedidos de oração.
+H. Rodapé
+Links rápidos para navegação.
+Botões de ação social (Instagram e WhatsApp).
+Destaque para a liderança (Foto e citação do Pastor Robert Lula Ramos).
+Copyright.
+5. Textos Sugeridos
+Tom de Comunicação: Acolhedor, Institucional, Espiritual, Moderno.
 
-In the project directory, you can run:
+Hero:
 
-### `npm start`
+Badge: "Bem-vindo ao Lar Espiritual"
+Título: "Igreja Batista Vida no Reino de Deus"
+Citação: "E perseveravam na doutrina dos apóstolos, e na comunhão, e no partir do pão, e nas orações." (Atos 2:42)
+Sobre Nós:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Origem: "A IBVRD nasceu dentro de casa... O que começou pequeno se transformou em um ministério em movimento."
+Crescimento: "Sofremos pelo evangelho... Mas tínhamos algo inabalável: a fé em Cristo."
+Missão: "Anunciar o Reino de Deus até que Ele venha..."
+Ministérios:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Louvor: "Levando a igreja aos pés do Pai através da adoração genuína."
+Jovens: "Gerando uma nova geração de discípulos de Cristo."
+Mulheres: "Mulheres fortes na fé, cuidando umas das outras em amor."
+Botões (CTAs):
 
-### `npm test`
+"Nossa Programação"
+"Fale Conosco"
+"Envie sua mensagem"
+"Siga-nos no Instagram"
+6. Orientações de Design (Sem Código)
+Estilo Visual Sugerido:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Limpo e Sofisticado: Uso abundante de espaço em branco (ou fundo claro levemente acinzentado) para leitura confortável.
+Arredondado: Cantos arredondados (rounded-2xl, rounded-full) para transmitir acolhimento e modernidade.
+Sombra Suave: Uso de sombras (shadow-lg, shadow-xl) para dar profundidade aos cards e seções, evitando visual "chapado".
+Cores Recomendadas (Paleta IBVRD):
 
-### `npm run build`
+Primária (Gold/Dourado): Para destaques, ícones, bordas e CTAs. Representa realeza e luz divina.
+Secundária (Dark/Preto): Para fundos da Hero, Footer e textos de destaque. Transmite solenidade e elegância.
+Neutras: Branco e Cinza claro (bg-white, bg-gray-100) para o corpo do conteúdo e fundo da página.
+Tipografia:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Títulos (Serif): Fonte elegante e clássica (ex: Cormorant ou Times New Roman estilizado) para transmitir tradição e autoridade bíblica.
+Corpo (Sans-Serif): Fonte limpa e moderna (ex: Inter, Roboto, Lato) para facilitar a leitura em telas (mobile e desktop).
+Comportamento Interativo:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Scroll Suave: Navegação entre seções deve ser fluida.
+Hover Effects: Botões e Cards devem ter leve elevação ou mudança de cor ao passar o mouse para indicar clicabilidade.
+Responsividade: O menu deve se transformar em um "hambúrguer" no celular; as colunas devem empilhar verticalmente em telas pequenas.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

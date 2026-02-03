@@ -5,16 +5,16 @@ function Events() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    // Lógica de datas dinâmica
+    // Lógica de datas dinâmica (Já estava correta no seu código)
     const getNextDay = (dayIndex, time) => {
       const d = new Date();
       const diff = (7 + dayIndex - d.getDay()) % 7;
       const next = new Date(d);
       next.setDate(d.getDate() + diff);
+      // Formato: "dia da semana, dia do mês, mês do ano | hora"
       return next.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' }) + ` | ${time}`;
     };
 
-    // Populando eventos (Exemplo com dados fixos para estrutura)
     setEvents([
       { title: 'Culto de Domingo', desc: 'Celebração e adoração', date: getNextDay(0, '19:00'), type: 'Culto' },
       { title: 'Culto de Terça', desc: 'Ensino e comunhão', date: getNextDay(2, '20:00'), type: 'Culto' },
@@ -29,7 +29,6 @@ function Events() {
       <div className="container mx-auto px-6">
         <SectionHeader label="Agenda" title="Nossa Programação" description="Temos programação para todos os dias da semana." />
 
-        {/* Renderização Condicional de Eventos */}
         {events.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20 max-w-6xl mx-auto">
             {events.map((ev, index) => (
@@ -43,7 +42,8 @@ function Events() {
                 </div>
                 <div className="bg-bg-light border-t border-gray-100 text-dark px-6 py-4 text-center group-hover:bg-gold/5 transition-colors">
                   <div className="text-xl font-bold font-serif text-gold">{ev.date.split('|')[1]}</div>
-                  <div className="text-xs uppercase text-gray-400 tracking-wider mt-1">
+                  {/* Adicionei 'capitalize' para garantir formatação correta no mobile */}
+                  <div className="text-xs uppercase text-gray-400 tracking-wider mt-1 capitalize">
                     {ev.date.split('|')[0]}
                   </div>
                 </div>
@@ -51,7 +51,6 @@ function Events() {
             ))}
           </div>
         ) : (
-          // Mensagem amigável quando não há eventos
           <div className="text-center py-20 bg-bg-light rounded-2xl border border-dashed border-gray-300 max-w-2xl mx-auto">
             <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400 text-3xl">
               <i className="far fa-calendar-check"></i>
@@ -61,7 +60,6 @@ function Events() {
           </div>
         )}
 
-        {/* Aviso de Horário Especial */}
         <div className="w-full max-w-md mx-auto">
           <div className="bg-gradient-to-br from-dark to-dark-soft rounded-2xl shadow-2xl p-1 overflow-hidden relative border border-gold/10">
             <div className="relative z-10 bg-dark/40 backdrop-blur-sm rounded-xl p-6 flex flex-col items-center justify-center text-center gap-3">

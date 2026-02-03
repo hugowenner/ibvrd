@@ -8,6 +8,7 @@ import Ministries from './components/Ministries';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent'; // Importação do componente
 
 import fundo from './assets/fundo.jpg';
 import './index.css';
@@ -25,7 +26,7 @@ function App() {
       }}
     >
       {/* Overlay para leitura */}
-      <div className="min-h-screen bg-white/70">
+      <div className="min-h-screen bg-white/70 relative">
         <Header />
         <main>
           <Hero />
@@ -36,6 +37,10 @@ function App() {
           <Contact />
         </main>
         <Footer />
+        
+        {/* COMPONENTE DE COOKIES ADICIONADO AQUI */}
+        <CookieConsent />
+        
       </div>
     </div>
   );

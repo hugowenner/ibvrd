@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SectionHeader from './SectionHeader';
 
 // ========================
@@ -29,7 +29,6 @@ import video2 from '../assets/video2.mp4';
 function Gallery() {
   // ========================
   // LISTA DE ITENS DA GALERIA
-  // Você pode reorganizar ou alterar as categorias aqui
   // ========================
   const galleryItems = [
     { id: 1, src: foto1, category: 'Momento Especial', type: 'image' },
@@ -54,6 +53,57 @@ function Gallery() {
     { id: 20, src: video2, category: 'Vídeo', type: 'video' },
   ];
 
+  // ========================
+  // ESTADOS DO MODAL
+  // ========================
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Fecha o modal com ESC ou Navega com setas do teclado
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (!isOpen) return;
+
+      if (event.key === "Escape") {
+        handleCloseModal();
+      } else if (event.key === "ArrowRight") {
+        handleNext(event);
+      } else if (event.key === "ArrowLeft") {
+        handlePrev(event);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, currentIndex]); // Dependências para garantir acesso ao estado atual
+
+  const handleOpenModal = (item) => {
+    const index = galleryItems.findIndex((i) => i.id === item.id);
+    setCurrentIndex(index);
+    setIsOpen(true);
+    document.body.style.overflow = 'hidden'; 
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  // Função Próximo
+  const handleNext = (e) => {
+    if(e) e.stopPropagation();
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % galleryItems.length);
+  };
+
+  // Função Anterior
+  const handlePrev = (e) => {
+    if(e) e.stopPropagation();
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + galleryItems.length) % galleryItems.length);
+  };
+
+  // Pega o item atual baseado no índice
+  const currentItem = galleryItems[currentIndex];
+
   return (
     <section id="galeria" className="py-16 sm:py-24 relative">
       <div className="container mx-auto px-6">
@@ -71,6 +121,7 @@ function Gallery() {
               className="group relative rounded-2xl overflow-hidden shadow-lg bg-gray-100 cursor-pointer shrink-0 
                       w-[260px] h-[340px] sm:w-[280px] sm:h-[360px] md:w-[300px] md:h-[400px] lg:w-[320px] lg:h-[420px]
                       snap-center border border-gray-100"
+              onClick={() => handleOpenModal(item)}
             >
               {/* Renderização Condicional: Imagem ou Vídeo */}
               {item.type === 'image' ? (
@@ -91,9 +142,9 @@ function Gallery() {
               )}
 
               {/* Overlay de Hover */}
-              <div className="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center text-white">
+              <div className="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center text-white pointer-events-none">
                 <div className="w-16 h-16 rounded-full bg-gold text-white flex items-center justify-center text-2xl transform translate-y-4 group-hover:translate-y-0 transition duration-300 shadow-lg">
-                  <i className={`fas ${item.type === 'video' ? 'fa-play' : 'fa-plus'}`}></i>
+                  <i className={`fas ${item.type === 'video' ? 'fa-play' : 'fa-expand'}`}></i>
                 </div>
                 <span className="mt-3 font-medium uppercase text-[10px] sm:text-xs tracking-widest transform translate-y-4 group-hover:translate-y-0 transition duration-300 delay-75">
                   {item.category}
@@ -116,6 +167,70 @@ function Gallery() {
           </a>
         </div>
       </div>
+
+      {/* ======================== */}
+      {/* MODAL / LIGHTBOX         */}
+      {/* ======================== */}
+      {isOpen && currentItem && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-2 sm:p-4"
+          onClick={handleCloseModal}
+        >
+          {/* Botão Fechar (Topo Direito) */}
+          <button 
+            onClick={handleCloseModal}
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-gold transition text-3xl sm:text-4xl focus:outline-none z-50"
+          >
+            <i className="fas fa-times"></i>
+          </button>
+
+          {/* Botão Anterior */}
+          <button 
+            onClick={handlePrev}
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-gold text-3xl sm:text-5xl transition p-4 focus:outline-none z-50 hover:scale-110 transform"
+          >
+            <i className="fas fa-chevron-left"></i>
+          </button>
+
+          {/* Botão Próximo */}
+          <button 
+            onClick={handleNext}
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-gold text-3xl sm:text-5xl transition p-4 focus:outline-none z-50 hover:scale-110 transform"
+          >
+            <i className="fas fa-chevron-right"></i>
+          </button>
+
+          {/* Área da Mídia */}
+          <div 
+            className="relative w-full max-w-5xl max-h-[85vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {currentItem.type === 'image' ? (
+              <img 
+                // key={currentIndex} <- Key força o React a recarregar a animação se houver, opcional
+                src={currentItem.src} 
+                alt={currentItem.category} 
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              />
+            ) : (
+              <video 
+                key={currentIndex} // Necessário para reiniciar o vídeo ao trocar
+                src={currentItem.src}
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                controls
+                autoPlay
+              />
+            )}
+          </div>
+
+          {/* Contador e Categoria (Fundo) */}
+          <div className="absolute bottom-4 left-0 right-0 text-center z-40 pointer-events-none">
+            <span className="text-gold font-bold uppercase tracking-widest text-xs sm:text-sm bg-black/60 px-4 py-2 rounded-full inline-block backdrop-blur-md">
+              {currentItem.category} ({currentIndex + 1}/{galleryItems.length})
+            </span>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
