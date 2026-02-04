@@ -4,24 +4,25 @@ import pastorImage from '../assets/pastor.png';
 function Footer() {
   const currentYear = new Date().getFullYear();
 
-  // Função auxiliar para remover acentos e gerar IDs de links limpos
+  // Função auxiliar (mantida para compatibilidade)
   const normalizeId = (text) => {
     return text
       .toLowerCase()
-      .normalize("NFD") // Decompõe caracteres acentuados
-      .replace(/[\u0300-\u036f]/g, "") // Remove os diacríticos (acentos)
-      .replace(/ç/g, "c") // Garante a troca de cedilha
-      .replace(/\s+/g, "-") // Substitui espaços por hífens (caso existam)
-      .replace("nós", "nos"); // Correção específica para "Sobre Nós"
+      .normalize("NFD") 
+      .replace(/[\u0300-\u036f]/g, "") 
+      .replace(/ç/g, "c") 
+      .replace(/\s+/g, "-") 
+      .replace("nós", "nos"); 
   };
 
+  // 🔧 CORREÇÃO AQUI: Adicionei o campo 'id' para garantir que aponte exatamente para o ID da seção
   const menuItems = [
-    { label: 'Início' },
-    { label: 'Sobre Nós' },
-    { label: 'Programação' },
-    { label: 'Ministérios' },
-    { label: 'Galeria' },
-    { label: 'Contato' }
+    { label: 'Início', id: 'inicio' },              // Aponta para id="inicio"
+    { label: 'Sobre Nós', id: 'sobre' },            // Aponta para id="sobre" (Corrigido)
+    { label: 'Programação', id: 'programacao' },   // Aponta para id="programacao"
+    { label: 'Ministérios', id: 'ministerios' },   // Aponta para id="ministerios"
+    { label: 'Galeria', id: 'galeria' },            // Aponta para id="galeria"
+    { label: 'Contato', id: 'contato' }            // Aponta para id="contato"
   ];
 
   return (
@@ -73,7 +74,8 @@ function Footer() {
                 {menuItems.map((item, idx) => (
                   <li key={idx}>
                     <a 
-                      href={`#${normalizeId(item.label)}`} 
+                      // 🔧 CORREÇÃO AQUI: Usa item.id se existir, senão usa a função normal
+                      href={`#${item.id || normalizeId(item.label)}`} 
                       className="group flex items-center text-gray-500 hover:text-gold transition-all duration-300 transform hover:translate-x-2"
                     >
                       <span className="w-0 group-hover:w-4 transition-all duration-300 text-gold opacity-0 group-hover:opacity-100">

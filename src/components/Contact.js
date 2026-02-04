@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Importando useState
+import React, { useState } from 'react';
 import SectionHeader from './SectionHeader';
 import Button from './Button';
 
@@ -10,9 +10,8 @@ function Contact() {
     message: ''
   });
 
-  // Estado para feedback visual
-  const [status, setStatus] = useState('idle'); 
-  const [feedbackMessage, setFeedbackMessage] = useState('');
+  // Estado apenas para controlar o botão (Enviando... / Enviar)
+  const [status, setStatus] = useState('idle');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,35 +22,39 @@ function Contact() {
     e.preventDefault();
     setStatus('loading');
 
+    // Extraímos os dados para enviar conforme sua solicitação
+    const { name, email, message } = formData;
+
     try {
-      // Faz o fetch para o endpoint criado no server.js
-      const response = await fetch('/api/contato', {
+      // Faz o fetch para o arquivo PHP (MUDANÇA AQUI)
+      const response = await fetch('/contato.php', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name,
+          email,
+          message
+        })
       });
 
       const data = await response.json();
+      
+      // Alerta de sucesso ou erro conforme sua solicitação
+      alert(data.message);
 
+      // Se der certo, limpa o formulário
       if (response.ok) {
-        setStatus('success');
-        setFeedbackMessage('Mensagem enviada com sucesso!');
         setFormData({ name: '', email: '', message: '' });
-      } else {
-        setStatus('error');
-        setFeedbackMessage(data.message || 'Erro ao enviar.');
       }
-    } catch (error) {
-      setStatus('error');
-      setFeedbackMessage('Erro de conexão. Tente novamente.');
-    }
 
-    setTimeout(() => {
+    } catch (error) {
+      alert('Erro ao enviar mensagem');
+    } finally {
+      // Libera o botão novamente
       setStatus('idle');
-      setFeedbackMessage('');
-    }, 5000);
+    }
   };
 
   return (
@@ -154,20 +157,6 @@ function Contact() {
           <div className="bg-white p-10 rounded-2xl shadow-lg border border-gray-100 h-fit">
             <h3 className="text-2xl font-serif font-bold text-dark mb-8">Envie sua mensagem</h3>
 
-            {/* Feedback Visual */}
-            {status === 'success' && (
-              <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-lg border border-green-200 flex items-center gap-3">
-                <i className="fas fa-check-circle text-xl"></i>
-                <span>{feedbackMessage}</span>
-              </div>
-            )}
-            {status === 'error' && (
-              <div className="mb-6 p-4 bg-red-50 text-red-700 rounded-lg border border-red-200 flex items-center gap-3">
-                <i className="fas fa-exclamation-circle text-xl"></i>
-                <span>{feedbackMessage}</span>
-              </div>
-            )}
-
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
@@ -218,10 +207,6 @@ function Contact() {
                 {status === 'loading' ? (
                   <>
                     <i className="fas fa-circle-notch fa-spin"></i> Enviando...
-                  </>
-                ) : status === 'success' ? (
-                  <>
-                    <i className="fas fa-check"></i> Enviado
                   </>
                 ) : (
                   <>
