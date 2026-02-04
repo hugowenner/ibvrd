@@ -1,8 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react'; // Importando useState
 import SectionHeader from './SectionHeader';
 import Button from './Button';
 
 function Contact() {
+  // Estado para os dados do formulário
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  // Estado para feedback visual
+  const [status, setStatus] = useState('idle'); 
+  const [feedbackMessage, setFeedbackMessage] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      // Faz o fetch para o endpoint criado no server.js
+      const response = await fetch('/api/contato', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setFeedbackMessage('Mensagem enviada com sucesso!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+        setFeedbackMessage(data.message || 'Erro ao enviar.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setFeedbackMessage('Erro de conexão. Tente novamente.');
+    }
+
+    setTimeout(() => {
+      setStatus('idle');
+      setFeedbackMessage('');
+    }, 5000);
+  };
+
   return (
     <section id="contato" className="py-24 relative">
       <div className="container mx-auto px-6">
@@ -103,20 +154,81 @@ function Contact() {
           <div className="bg-white p-10 rounded-2xl shadow-lg border border-gray-100 h-fit">
             <h3 className="text-2xl font-serif font-bold text-dark mb-8">Envie sua mensagem</h3>
 
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-6">
+            {/* Feedback Visual */}
+            {status === 'success' && (
+              <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-lg border border-green-200 flex items-center gap-3">
+                <i className="fas fa-check-circle text-xl"></i>
+                <span>{feedbackMessage}</span>
+              </div>
+            )}
+            {status === 'error' && (
+              <div className="mb-6 p-4 bg-red-50 text-red-700 rounded-lg border border-red-200 flex items-center gap-3">
+                <i className="fas fa-exclamation-circle text-xl"></i>
+                <span>{feedbackMessage}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
-                <input type="text" className="w-full p-4 bg-gray-50 border border-gray-200 text-dark rounded-lg focus:ring-2 focus:ring-gold outline-none transition" placeholder="Seu nome" required />
+                <input 
+                  type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full p-4 bg-gray-50 border border-gray-200 text-dark rounded-lg focus:ring-2 focus:ring-gold outline-none transition" 
+                  placeholder="Seu nome" 
+                  required 
+                  disabled={status === 'loading'}
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
-                <input type="email" className="w-full p-4 bg-gray-50 border border-gray-200 text-dark rounded-lg focus:ring-2 focus:ring-gold outline-none transition" placeholder="seu@email.com" required />
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full p-4 bg-gray-50 border border-gray-200 text-dark rounded-lg focus:ring-2 focus:ring-gold outline-none transition" 
+                  placeholder="seu@email.com" 
+                  required 
+                  disabled={status === 'loading'}
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Mensagem</label>
-                <textarea rows="5" className="w-full p-4 bg-gray-50 border border-gray-200 text-dark rounded-lg focus:ring-2 focus:ring-gold outline-none transition resize-none" placeholder="Como podemos ajudar?" required />
+                <textarea 
+                  rows="5" 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full p-4 bg-gray-50 border border-gray-200 text-dark rounded-lg focus:ring-2 focus:ring-gold outline-none transition resize-none" 
+                  placeholder="Como podemos ajudar?" 
+                  required 
+                  disabled={status === 'loading'}
+                />
               </div>
-              <Button type="submit" icon="fa-paper-plane" className="w-full justify-center">Enviar Mensagem</Button>
+              
+              <Button 
+                type="submit" 
+                variant="primary"
+                className={`w-full justify-center ${status === 'loading' ? 'opacity-75 cursor-not-allowed' : ''}`} 
+                disabled={status === 'loading'}
+              >
+                {status === 'loading' ? (
+                  <>
+                    <i className="fas fa-circle-notch fa-spin"></i> Enviando...
+                  </>
+                ) : status === 'success' ? (
+                  <>
+                    <i className="fas fa-check"></i> Enviado
+                  </>
+                ) : (
+                  <>
+                    Enviar Mensagem <i className="fas fa-paper-plane"></i>
+                  </>
+                )}
+              </Button>
             </form>
           </div>
         </div>
