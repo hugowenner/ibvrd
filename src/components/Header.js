@@ -1,33 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import logoImage from '../assets/logo.png';
+import React, { useState, useEffect } from 'react'
+import logoLight from '../assets/logo-light.png'
+import logoDark from '../assets/logo-dark.jpg'
 
 function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+    }
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const toggleMenu = () => setIsOpen(!isOpen)
 
   const scrollToSection = (e, id) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const headerOffset = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    e.preventDefault()
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-    if (isOpen) setIsOpen(false);
-  };
+    const element = document.getElementById(id)
+    if (!element) return
+
+    const headerOffset = 100
+    const elementPosition = element.getBoundingClientRect().top
+    const offsetPosition =
+      elementPosition + window.pageYOffset - headerOffset
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    })
+
+    if (isOpen) setIsOpen(false)
+  }
 
   const menuItems = [
     { label: 'Início', id: 'inicio' },
@@ -35,22 +42,30 @@ function Header() {
     { label: 'Programação', id: 'programacao' },
     { label: 'Ministérios', id: 'ministerios' },
     { label: 'Galeria', id: 'galeria' },
-    { label: 'Contato', id: 'contato' }
-  ];
+    { label: 'Contato', id: 'contato' },
+  ]
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'}`}>
+    <header
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'
+      }`}
+    >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        
-        {/* Logo com Imagem e Sombra Adicionada */}
-        <a href="#" className="flex items-center gap-2 transition-transform hover:scale-105 duration-300">
+        {/* Logo */}
+        <button
+          onClick={(e) => scrollToSection(e, 'inicio')}
+          className="flex items-center gap-2 transition-transform hover:scale-105 duration-300 bg-transparent border-none cursor-pointer"
+          aria-label="Voltar ao topo"
+        >
           <img
-            src={logoImage}
+            src={scrolled ? logoDark : logoLight}
             alt="Logo IBVRD"
-            // Adicionei "drop-shadow-lg" aqui para dar contraste no fundo branco
-            className="h-20 w-auto object-contain drop-shadow-lg"
+            className={`h-20 w-auto object-contain transition-all duration-300 ${
+              scrolled ? 'rounded-full shadow-md' : ''
+            }`}
           />
-        </a>
+        </button>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-8">
@@ -58,7 +73,9 @@ function Header() {
             <button
               key={item.id}
               onClick={(e) => scrollToSection(e, item.id)}
-              className={`font-medium hover:text-gold transition-colors bg-transparent border-none cursor-pointer ${scrolled ? 'text-dark' : 'text-white'}`}
+              className={`font-medium hover:text-gold transition-colors bg-transparent border-none cursor-pointer ${
+                scrolled ? 'text-dark' : 'text-white'
+              }`}
             >
               {item.label}
             </button>
@@ -66,8 +83,18 @@ function Header() {
         </nav>
 
         {/* Mobile Toggle */}
-        <button onClick={toggleMenu} className={`md:hidden ${scrolled ? 'text-dark' : 'text-white'} focus:outline-none bg-transparent border-none cursor-pointer`}>
-          <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
+        <button
+          onClick={toggleMenu}
+          className={`md:hidden focus:outline-none bg-transparent border-none cursor-pointer ${
+            scrolled ? 'text-dark' : 'text-white'
+          }`}
+          aria-label="Abrir menu"
+        >
+          <i
+            className={`fas ${
+              isOpen ? 'fa-times' : 'fa-bars'
+            } text-2xl`}
+          />
         </button>
       </div>
 
@@ -86,7 +113,7 @@ function Header() {
         </nav>
       )}
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

@@ -10,9 +10,8 @@ function Hero() {
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10 animate-fade-in">
-        <span className="inline-block border border-gold/50 text-gold px-6 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-8 backdrop-blur-sm bg-gold/10">
-          Bem-vindo ao Lar Espiritual
-        </span>
+        
+        {/* --- MENSAGEM REMOVIDA DAQUI --- */}
         
         {/* Título Principal */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-2xl">
