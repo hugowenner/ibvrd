@@ -48,21 +48,23 @@ function Header() {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'
+        scrolled ? 'bg-white shadow-md py-3 md:py-4' : 'bg-transparent py-4 md:py-6'
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo */}
         <button
           onClick={(e) => scrollToSection(e, 'inicio')}
-          className="flex items-center gap-2 transition-transform hover:scale-105 duration-300 bg-transparent border-none cursor-pointer"
+          className="flex items-center transition-transform hover:scale-105 duration-300 bg-transparent border-none cursor-pointer shrink-0"
           aria-label="Voltar ao topo"
         >
           <img
             src={scrolled ? logoDark : logoLight}
             alt="Logo IBVRD"
-            className={`h-20 w-auto object-contain transition-all duration-300 ${
-              scrolled ? 'rounded-full shadow-md' : ''
+            className={`w-auto object-contain transition-all duration-300 ${
+              scrolled
+                ? 'h-12 sm:h-14 md:h-12 rounded-full shadow-md'
+                : 'h-12 sm:h-16 md:h-20 rounded-none shadow-none'
             }`}
           />
         </button>
@@ -85,7 +87,7 @@ function Header() {
         {/* Mobile Toggle */}
         <button
           onClick={toggleMenu}
-          className={`md:hidden focus:outline-none bg-transparent border-none cursor-pointer ${
+          className={`md:hidden focus:outline-none bg-transparent border-none cursor-pointer shrink-0 ${
             scrolled ? 'text-dark' : 'text-white'
           }`}
           aria-label="Abrir menu"
