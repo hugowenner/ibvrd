@@ -157,7 +157,7 @@ function Gallery() {
 
         <div className="text-center mt-6 sm:mt-8">
           <a 
-            href="https://www.instagram.com/ibvrd_oficial/" 
+            href="https://www.instagram.com/ibvrdoficial/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="inline-flex items-center gap-3 border-2 border-dark text-dark px-6 sm:px-8 py-3 rounded-full font-bold uppercase text-[10px] sm:text-xs tracking-widest hover:bg-dark hover:text-gold transition duration-300"
